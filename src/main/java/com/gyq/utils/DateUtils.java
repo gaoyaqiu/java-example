@@ -12,7 +12,8 @@ import java.util.*;
  */
 public class DateUtils {
 
-    private DateUtils(){}
+    private DateUtils() {
+    }
 
     /**
      * 格式化时间
@@ -225,8 +226,9 @@ public class DateUtils {
     }
 
 
-	/**
+    /**
      * 判断是否是指定毫秒之前的 (例如48小时之前)
+     *
      * @param time
      * @return
      */
@@ -322,22 +324,25 @@ public class DateUtils {
 
     /**
      * 获取当前时间戳(毫秒)
+     *
      * @return
      */
-    public static Long getCurrentTimeMills(){
+    public static Long getCurrentTimeMills() {
         return System.currentTimeMillis();
     }
 
     /**
      * 获取当前时间戳(秒)
+     *
      * @return
      */
-    public static Long getCurrentTimeSecond(){
+    public static Long getCurrentTimeSecond() {
         return System.currentTimeMillis() / 1000;
     }
 
-	/**
+    /**
      * 获取系统当前时间 自定义格式
+     *
      * @param fmt 自定义格式
      * @return
      */
@@ -346,22 +351,23 @@ public class DateUtils {
         return myFormat.format(new Date());
     }
 
-	/**
-	 * 获取七天前日期
-	 * @return
-	 * @throws ParseException
-	 */
-	public static Long getSevenDayAgoDateStr() throws Exception{
+    /**
+     * 获取七天前日期
+     *
+     * @return
+     * @throws ParseException
+     */
+    public static Long getSevenDayAgoDateStr() throws Exception {
 
-		Calendar c = Calendar.getInstance();
-		c.add(Calendar.DATE, - 7);
+        Calendar c = Calendar.getInstance();
+        c.add(Calendar.DATE, -7);
         c.set(Calendar.HOUR_OF_DAY, 0);
         c.set(Calendar.SECOND, 0);
         c.set(Calendar.MINUTE, 0);
         c.set(Calendar.MILLISECOND, 0);
 
         return c.getTimeInMillis();
-	}
+    }
 
     /**
      * 获取前N天的开始时间戳(毫秒)
@@ -372,7 +378,7 @@ public class DateUtils {
     public static Long getDaysBeforeBeginTime(int day) {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         Calendar c = Calendar.getInstance();
-        c.add(Calendar.DATE, - day);
+        c.add(Calendar.DATE, -day);
 
         return getResetTime(c.getTime(), 0, 0, 0).getTime();
     }
@@ -380,14 +386,10 @@ public class DateUtils {
     /**
      * 获取重置指定日期的时分秒后的时间
      *
-     * @param date
-     *            指定日期
-     * @param hour
-     *            指定小时
-     * @param minute
-     *            指定分钟
-     * @param second
-     *            指定秒
+     * @param date   指定日期
+     * @param hour   指定小时
+     * @param minute 指定分钟
+     * @param second 指定秒
      * @return 返回重置时分秒后的时间
      */
     public static Date getResetTime(Date date, int hour, int minute, int second) {
@@ -401,8 +403,9 @@ public class DateUtils {
         return cal.getTime();
     }
 
-	/**
+    /**
      * 获取重置指定日期的时分秒毫秒后的时间
+     *
      * @param date
      * @param hour
      * @param minute
@@ -425,8 +428,7 @@ public class DateUtils {
     /**
      * 返回指定日期的起始时间
      *
-     * @param date
-     *            指定日期（例如2014-08-01）
+     * @param date 指定日期（例如2014-08-01）
      * @return 返回起始时间（例如2014-08-01 00:00:00）
      */
     public static Date getIntegralStartTime(Date date) {
@@ -436,8 +438,7 @@ public class DateUtils {
     /**
      * 返回指定日期的结束时间
      *
-     * @param date
-     *            指定日期（例如2014-08-01）
+     * @param date 指定日期（例如2014-08-01）
      * @return 返回结束时间（例如2014-08-01 23:59:59）
      */
     public static Date getIntegralEndTime(Date date) {
@@ -447,10 +448,8 @@ public class DateUtils {
     /**
      * 获取时间date1与date2相差的秒数
      *
-     * @param date1
-     *            起始时间
-     * @param date2
-     *            结束时间
+     * @param date1 起始时间
+     * @param date2 结束时间
      * @return 返回相差的秒数
      */
     public static int getOffsetSeconds(Date date1, Date date2) {
@@ -461,10 +460,8 @@ public class DateUtils {
     /**
      * 获取时间date1与date2相差的分钟数
      *
-     * @param date1
-     *            起始时间
-     * @param date2
-     *            结束时间
+     * @param date1 起始时间
+     * @param date2 结束时间
      * @return 返回相差的分钟数
      */
     public static int getOffsetMinutes(Date date1, Date date2) {
@@ -474,10 +471,8 @@ public class DateUtils {
     /**
      * 获取时间date1与date2相差的小时数
      *
-     * @param date1
-     *            起始时间
-     * @param date2
-     *            结束时间
+     * @param date1 起始时间
+     * @param date2 结束时间
      * @return 返回相差的小时数
      */
     public static int getOffsetHours(Date date1, Date date2) {
@@ -487,10 +482,8 @@ public class DateUtils {
     /**
      * 获取时间date1与date2相差的天数数
      *
-     * @param date1
-     *            起始时间
-     * @param date2
-     *            结束时间
+     * @param date1 起始时间
+     * @param date2 结束时间
      * @return 返回相差的天数
      */
     public static int getOffsetDays(Date date1, Date date2) {
@@ -514,38 +507,42 @@ public class DateUtils {
         return getIntegralStartTime(cal.getTime());
     }
 
-	/**
+    /**
      * 获取前一天
+     *
      * @return
      */
     public static Date getPrevday() {
         Calendar cal = Calendar.getInstance();
-        cal.add(Calendar.DATE,   -1);
+        cal.add(Calendar.DATE, -1);
         return getIntegralStartTime(cal.getTime());
     }
 
-	/**
-	 * long转date
-	 * @param lg
-	 * @return
-	 */
-	public static Date longToDate(Long lg) {
-		return new Date(lg);
-	}
+    /**
+     * long转date
+     *
+     * @param lg
+     * @return
+     */
+    public static Date longToDate(Long lg) {
+        return new Date(lg);
+    }
 
-	/**
-	 * 加几天
-	 * @param c
-	 * @param days
-	 * @return
-	 */
-	public static long plus(Calendar c, int days) {
-		c.set(Calendar.DAY_OF_MONTH, c.get(Calendar.DAY_OF_MONTH) + days);
-		return c.getTimeInMillis();
-	}
+    /**
+     * 加几天
+     *
+     * @param c
+     * @param days
+     * @return
+     */
+    public static long plus(Calendar c, int days) {
+        c.set(Calendar.DAY_OF_MONTH, c.get(Calendar.DAY_OF_MONTH) + days);
+        return c.getTimeInMillis();
+    }
 
-	/**
+    /**
      * 根据开始时间和结束时间返回时间段内的时间戳集合
+     *
      * @param beginDate
      * @param endDate
      * @return
@@ -557,7 +554,7 @@ public class DateUtils {
 
         while (beginDate <= endDate) {
             resList.add(beginDate);
-            beginDate = beginDate+86400000;
+            beginDate = beginDate + 86400000;
         }
 
         return resList;
@@ -565,6 +562,7 @@ public class DateUtils {
 
     /**
      * 根据开始时间和结束时间返回时间段内的日期集合
+     *
      * @param beginDate
      * @param endDate
      * @return
@@ -589,11 +587,12 @@ public class DateUtils {
 
     /**
      * 根据开始时间和结束时间返回时间段内的日期集合
+     *
      * @param beginDate
      * @param endDate
      * @return
      */
-    public static List<Date> getDaysBetweenTwoLongTime(long beginDate, long endDate) throws Exception{
+    public static List<Date> getDaysBetweenTwoLongTime(long beginDate, long endDate) throws Exception {
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
@@ -622,7 +621,7 @@ public class DateUtils {
         cal.set(Calendar.HOUR_OF_DAY, 0);
         cal.set(Calendar.MINUTE, 0);
         cal.set(Calendar.SECOND, 0);
-        cal.set(Calendar.MILLISECOND,0);
+        cal.set(Calendar.MILLISECOND, 0);
         return cal.getTimeInMillis();
     }
 
@@ -639,7 +638,7 @@ public class DateUtils {
         cal.set(Calendar.HOUR_OF_DAY, 23);
         cal.set(Calendar.MINUTE, 59);
         cal.set(Calendar.SECOND, 59);
-        cal.set(Calendar.MILLISECOND,999);
+        cal.set(Calendar.MILLISECOND, 999);
         return cal.getTimeInMillis();
     }
 
@@ -684,7 +683,7 @@ public class DateUtils {
         Calendar cal = new GregorianCalendar();
         cal.setTimeInMillis(millis);
         int day = cal.getActualMaximum(Calendar.DAY_OF_MONTH);
-        cal.set(Calendar.DAY_OF_MONTH,day);
+        cal.set(Calendar.DAY_OF_MONTH, day);
         return getDayEnd(cal.getTimeInMillis());
     }
 
@@ -702,7 +701,7 @@ public class DateUtils {
         cal.set(Calendar.HOUR_OF_DAY, 23);
         cal.set(Calendar.MINUTE, 59);
         cal.set(Calendar.SECOND, 59);
-        cal.set(Calendar.MILLISECOND,999);
+        cal.set(Calendar.MILLISECOND, 999);
         return cal.getTimeInMillis();
     }
 
@@ -713,7 +712,7 @@ public class DateUtils {
      * @return
      */
     public static long getSeasonEnd(long millis) {
-        final int[] SEASON = { 1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4 };
+        final int[] SEASON = {1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4};
         Calendar cal = Calendar.getInstance();
         cal.setTimeInMillis(millis);
         int sean = SEASON[cal.get(Calendar.MONTH)];
