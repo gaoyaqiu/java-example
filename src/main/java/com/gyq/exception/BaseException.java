@@ -13,5 +13,7 @@ public class BaseException extends RuntimeException {
         super(msg, ex);
     }
 
+
+
     public BaseException(Throwable exception) {super(exception); }
 }

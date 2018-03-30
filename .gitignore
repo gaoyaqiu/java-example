@@ -27,3 +27,6 @@ target
 build
 out
 .gradle
+Test.java
+Test2.java
+VoteTest.java

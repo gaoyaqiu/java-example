@@ -10,9 +10,9 @@ import java.util.*;
  *
  * @auther gaoyaqiu
  */
-public class DateUtils {
+public class DateUtil {
 
-    private DateUtils() {
+    private DateUtil() {
     }
 
     /**
@@ -318,7 +318,7 @@ public class DateUtils {
      * @return
      */
     public static String getDateTime() {
-        SimpleDateFormat myFormat = new SimpleDateFormat("yyyyMMddHHmmss");
+        SimpleDateFormat myFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         return myFormat.format(new Date());
     }
 

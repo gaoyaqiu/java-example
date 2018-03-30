@@ -1,6 +1,5 @@
 package com.gyq.utils;
 
-import lombok.extern.slf4j.Slf4j;
 import net.coobird.thumbnailator.Thumbnails;
 
 import java.io.IOException;
@@ -10,7 +9,6 @@ import java.io.IOException;
  *
  * @auther gaoyaqiu
  */
-@Slf4j
 public class ThumbnailsUtils {
 
     /**
