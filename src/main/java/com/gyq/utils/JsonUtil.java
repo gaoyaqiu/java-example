@@ -13,7 +13,7 @@ import java.util.Map;
  *
  * @auther gaoyaqiu
  */
-public class JsonUtils {
+public class JsonUtil {
 
     public static String object2Json(Object objValue){
         return JsonConverter.getInstance().object2Json(objValue);

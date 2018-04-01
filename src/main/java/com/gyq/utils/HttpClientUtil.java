@@ -458,7 +458,7 @@ public final class HttpClientUtil {
             HttpPost httpPost = new HttpPost(url);
 
             if (params != null && !params.isEmpty()) {
-                String postEntity = JsonUtils.object2Json(params);
+                String postEntity = JsonUtil.object2Json(params);
                 if(Strings.isNullOrEmpty(postEntity)){
                     StringEntity entity = new StringEntity(postEntity, CHARSET);
                     entity.setContentEncoding("UTF-8");
