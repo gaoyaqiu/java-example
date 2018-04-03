@@ -20,7 +20,7 @@ public class ExampleExcelHandleTest {
     @Test
     public void importTest() {
 
-        String file = "/Users/gaoyaqiu/Downloads/gc.xls";
+        String file = "/Users/gaoyaqiu/Downloads/t1.xls";
         try {
             JxlExcelHandle jxlExcelHandle = new ExampleExcelHandleService();
             List<Map<String, String>> data = (List<Map<String, String>>) jxlExcelHandle.readExcel(file, 0, true);
@@ -31,7 +31,7 @@ public class ExampleExcelHandleTest {
                 resolveData(data.get(i), newData);
             }
 
-            jxlExcelHandle.writeExcel(newData, null, "/Users/gaoyaqiu/Downloads/gc3.xls");
+            jxlExcelHandle.writeExcel(newData, null, "/Users/gaoyaqiu/Downloads/t2.xls");
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -71,8 +71,8 @@ public class ExampleExcelHandleTest {
             s13 = s13.replaceAll("\\[", "").replaceAll("]", "").replaceAll("\"", "");
             String[] sp13 = s13.split(",");
 
-            // 忽略该字段
-            String s14 = map.get("用油点是否删除");
+            // 铭牌
+            String s14 = map.get("铭牌编号");
 
             try {
 
@@ -137,6 +137,7 @@ public class ExampleExcelHandleTest {
                             resolveMap.put("s13", tmp13);
                         }
                     }
+                    resolveMap.put("s14", s14);
 
                     System.out.println(
                             s1 +
@@ -152,6 +153,7 @@ public class ExampleExcelHandleTest {
                                     "\t" + tmp11 +
                                     "\t" + tmp12 +
                                     "\t" + tmp13 +
+                                    "\t" + s14 +
                                     "\t"
                     );
 
@@ -172,6 +174,7 @@ public class ExampleExcelHandleTest {
                         "\t" + s11 +
                         "\t" + s12 +
                         "\t" + s13 +
+                        "\t" + s14 +
                         "\t"
                 );
                 System.out.println("-----------------------------");
