@@ -1,5 +1,7 @@
-package com.gyq.pattern.factory;
+package com.gyq.pattern.factory.simple;
 
+import com.gyq.pattern.factory.Car;
+import com.gyq.pattern.factory.simple.SimpleFactory;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;

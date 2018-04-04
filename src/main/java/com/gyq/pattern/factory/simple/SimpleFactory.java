@@ -1,4 +1,9 @@
-package com.gyq.pattern.factory;
+package com.gyq.pattern.factory.simple;
+
+import com.gyq.pattern.factory.Alto;
+import com.gyq.pattern.factory.BMW;
+import com.gyq.pattern.factory.Benz;
+import com.gyq.pattern.factory.Car;
 
 /**
  * 简单工厂模式.
