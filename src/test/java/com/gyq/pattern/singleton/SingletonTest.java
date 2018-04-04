@@ -88,4 +88,28 @@ public final class SingletonTest {
 
         Assert.assertThat(set.size(), is(1));
     }
+
+    @Test
+    public void regSingletonTest() {
+        int threadNumber = 100;
+        CountDownLatch latch = new CountDownLatch(threadNumber);
+
+        Set<Integer> set = new HashSet<>();
+        for (int i = 0; i < threadNumber; i++) {
+            new Thread(() -> {
+                latch.countDown();
+                RegSingleton obj = RegSingleton.getInstance(RegSingleton.class.getName());
+                System.out.println(obj.hashCode() + "  " + obj);
+                set.add(obj.hashCode());
+            }).start();
+        }
+
+        try {
+            latch.await();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        Assert.assertThat(set.size(), is(1));
+    }
 }
