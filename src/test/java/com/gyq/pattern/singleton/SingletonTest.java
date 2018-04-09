@@ -94,13 +94,12 @@ public final class SingletonTest {
         int threadNumber = 100;
         CountDownLatch latch = new CountDownLatch(threadNumber);
 
-        Set<Integer> set = new HashSet<>();
+        Set<String> set = new HashSet<>();
         for (int i = 0; i < threadNumber; i++) {
             new Thread(() -> {
                 latch.countDown();
                 RegSingleton obj = RegSingleton.getInstance(RegSingleton.class.getName());
-                System.out.println(obj.hashCode() + "  " + obj);
-                set.add(obj.hashCode());
+                set.add(Integer.toHexString(obj.hashCode()));
             }).start();
         }
 

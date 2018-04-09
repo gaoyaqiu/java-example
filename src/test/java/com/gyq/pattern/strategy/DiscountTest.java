@@ -10,8 +10,7 @@ import static org.hamcrest.core.Is.is;
  *
  * @auther gaoyaqiu
  */
-public class DiscountTest {
-
+public final class DiscountTest {
 
     @Test
     public void lazySingleton1Test() {

@@ -8,7 +8,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 /**
  * @auther gaoyaqiu
  */
-public class AbstractCarFactoryTest {
+public final class AbstractCarFactoryTest {
 
     @Test
     public void acfTest() {

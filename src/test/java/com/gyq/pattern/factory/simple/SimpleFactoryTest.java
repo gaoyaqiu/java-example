@@ -11,7 +11,7 @@ import static org.junit.Assert.assertThat;
 /**
  * @auther gaoyaqiu
  */
-public class SimpleFactoryTest {
+public final class SimpleFactoryTest {
 
     @Test
     public void sfTest() {

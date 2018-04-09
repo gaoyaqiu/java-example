@@ -17,7 +17,7 @@ public class VoteTest {
 
         CountDownLatch countDownLatch = new CountDownLatch(1);
         String url = "http://ekewka.wx.guiyekeji.com/app/index.php?i=4&c=entry&rid=46&id=1177&do=vote&m=sanlei_vote";
-       // String url = "http://www.vchangyi.com";
+       // String url = "http://www.baidu.com";
 
         Map<String, Object> params = new HashMap<>();
 

@@ -8,7 +8,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 /**
  * @auther gaoyaqiu
  */
-public class MethFactoryTest {
+public final class MethFactoryTest {
 
     @Test
     public void mfTest() {
