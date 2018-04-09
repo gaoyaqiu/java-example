@@ -13,7 +13,7 @@ import static org.hamcrest.core.Is.is;
 public final class DiscountTest {
 
     @Test
-    public void lazySingleton1Test() {
+    public void assertStrategy() {
         DiscountContext context = new DiscountContext(null);
         Assert.assertThat(context.getDiscountPrice(10), is(8.0));
 

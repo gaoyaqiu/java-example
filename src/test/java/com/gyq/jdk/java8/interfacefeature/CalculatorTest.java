@@ -11,14 +11,14 @@ import static org.hamcrest.MatcherAssert.assertThat;
 public final class CalculatorTest {
 
     @Test
-    public void test(){
-        Calculator calculator = new CalculatorImpl();
+    public void assertCalculator(){
+        ICalculator calculator = new CalculatorImpl();
         int a = calculator.add(1, 2);
         assertThat(a, is(3));
 
         int b = calculator.minus(3, 2);
         assertThat(b, is(1));
 
-        Calculator.hi();
+        ICalculator.hi();
     }
 }

@@ -5,7 +5,7 @@ package com.gyq.jdk.java8.interfacefeature;
  *
  * @auther gaoyaqiu
  */
-public interface Calculator {
+public interface ICalculator {
 
     // 定义默认方法
     default int add(int a, int b) {
