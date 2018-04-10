@@ -1,13 +1,14 @@
 package com.gyq.jdk.java8.interfacefeature;
 
 /**
- * 接口的默认方法和静态方法.
+ * 接口的默认方法和静态方法(适合lanmbda编程的函数式接口).
  *
  * @auther gaoyaqiu
  */
+@FunctionalInterface
 public interface ICalculator {
 
-    // 定义默认方法
+    // 此方法不需要子类强制实现
     default int add(int a, int b) {
         return a + b;
     }

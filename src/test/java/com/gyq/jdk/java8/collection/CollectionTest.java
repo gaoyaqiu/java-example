@@ -7,7 +7,6 @@ import org.junit.Test;
 
 import java.util.*;
 import java.util.function.BinaryOperator;
-import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
 import static java.util.stream.Collectors.toList;
@@ -69,19 +68,27 @@ public final class CollectionTest {
 
     @Test
     public void test2() {
-        List<User> list = Arrays.asList(new User("zhagsan", 18), new User("lisi", 28), new User("wangwu", 5));
+        List<User> list = Arrays.asList(new User("zhangsan", 18), new User("lisi", 28), new User("wangwu", 5));
 
-        list.stream().map(x -> new User(x.getName(), x.getAge())).collect(toList()).forEach(new Consumer<User>() {
-            @Override
-            public void accept(User user) {
-                System.out.println("k:" + user.getName() + "--v:" + user.getAge());
-            }
-        });
+        // 遍历每一个属性值
+        list.forEach(user -> System.out.println(user.getName() + "---" + user.getAge()));
+
         System.out.println("-------------");
 
+        list.stream().filter(user -> "zhangsan".equals(user.getName())).forEach(user -> user.getName());
+
+        System.out.println("-------------");
+        System.out.println("-------------");
+
+      /*  list.stream().map(x -> new User(x.getName(), x.getAge())).collect(toList()).forEach(user -> System.out.println("k:" + user.getName() + "--v:" + user.getAge()));
+        System.out.println("-------------");
         List<String> list1 = list.stream().map(User::getName).collect(toList());
         System.out.println(list1);
         System.out.println("-------------");
+
+
+        System.out.println("-------------");
+
         List<User> list2 = list.stream().map(x -> new User(x.getName(), x.getAge())).collect(toList());
         System.out.println(list2);
         System.out.println("-------------");
@@ -107,7 +114,7 @@ public final class CollectionTest {
         System.out.println(map2);
 
         System.out.println("-------------");
-
+*/
 
     }
 
