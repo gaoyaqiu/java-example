@@ -22,7 +22,7 @@ public class ThreadTest {
             e.printStackTrace();
         }
 
-        // 测试是否会影响到张三的线程，把张三线程给释放了, 结果并不会，因为wait、notify方法作用域只在当前的对象上
+        // 测试是否会影响到张三的线程，把张三线程给释放了, 结果并不会，因为线程之间是隔离的，wait、notify方法作用域只在当前的对象上
         liSi.release();
         try {
             Thread.sleep(3000);
