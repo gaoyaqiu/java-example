@@ -1,2 +1,4 @@
-rootProject.name = 'tools'
+rootProject.name = 'java-example'
+include 'spring-boot-jpa-example'
+include 'java-example-tools'
 

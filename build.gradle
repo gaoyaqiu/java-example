@@ -1,60 +1,74 @@
-group 'com.gyq'
-version '1.0'
-
-
 buildscript {
+    ext {
+        springBootVersion = '1.5.0.RELEASE'
+    }
+
     repositories {
         jcenter()
     }
+
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
 }
 
-apply plugin: 'java'
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
+group 'com.gyq'
+version '1.0'
 
-
-repositories {
-    jcenter()
+allprojects {
+    ext {
+        jackson_version = "2.6.5"
+        lombok_version = "1.16.8"
+        guava_version = "18.0"
+        thumbnailator_version = "0.4.8"
+        xstream_version = "1.4.9"
+        dom4j_version = "1.6.1"
+        httpcomponents_client_version = "4.5.2"
+        httpcomponents_core_version = "4.4.5"
+        jxl_version="2.6.12"
+        slf4j_version="1.7.2"
+        springboot_version="1.5.0.RELEASE"
+        mysql_connector_version="5.1.30"
+    }
 }
 
-ext {
-    jackson_version = "2.6.5"
-    lombok_version = "1.16.8"
-    guava_version = "18.0"
-    thumbnailator_version = "0.4.8"
-    xstream_version = "1.4.9"
-    dom4j_version = "1.6.1"
-    httpcomponents_client_version = "4.5.2"
-    httpcomponents_core_version = "4.4.5"
-    jxl_version="2.6.12"
-    slf4j_version="1.7.2"
-    springboot_version="1.5.0.RELEASE"
-}
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'io.spring.dependency-management'
 
-dependencies {
-    compile(
-            "com.google.guava:guava:${guava_version}",
-            "com.fasterxml.jackson.core:jackson-annotations:${jackson_version}",
-            "com.fasterxml.jackson.core:jackson-core:${jackson_version}",
-            "com.fasterxml.jackson.core:jackson-databind:${jackson_version}",
-            "com.google.guava:guava:${guava_version}",
-            "org.projectlombok:lombok:${lombok_version}",
-            "net.coobird:thumbnailator:${thumbnailator_version}",
-            "com.thoughtworks.xstream:xstream:${xstream_version}",
-            "dom4j:dom4j:${dom4j_version}",
-            "org.apache.httpcomponents:httpclient:${httpcomponents_client_version}",
-            "org.apache.httpcomponents:httpmime:${httpcomponents_client_version}",
-            "org.apache.httpcomponents:httpcore:${httpcomponents_core_version}",
-            "org.apache.commons:commons-lang3:3.4",
-            "commons-io:commons-io:2.5",
-            "commons-codec:commons-codec:1.9",
-            "net.sourceforge.jexcelapi:jxl:${jxl_version}",
-            "org.slf4j:slf4j-api:${slf4j_version}" ,
-            "org.slf4j:jcl-over-slf4j:${slf4j_version}",
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+    [compileJava, compileTestJava]*.options*.encoding = "UTF-8"
 
-            "org.springframework.boot:spring-boot-starter-data-jpa:${springboot_version}"
+    repositories {
+        jcenter()
+    }
 
-    )
 
-    testCompile group: 'junit', name: 'junit', version: '4.12'
+    dependencies {
+        compile(
+                "com.google.guava:guava:${guava_version}",
+                "com.fasterxml.jackson.core:jackson-annotations:${jackson_version}",
+                "com.fasterxml.jackson.core:jackson-core:${jackson_version}",
+                "com.fasterxml.jackson.core:jackson-databind:${jackson_version}",
+                "com.google.guava:guava:${guava_version}",
+                "org.projectlombok:lombok:${lombok_version}",
+                "net.coobird:thumbnailator:${thumbnailator_version}",
+                "com.thoughtworks.xstream:xstream:${xstream_version}",
+                "dom4j:dom4j:${dom4j_version}",
+                "org.apache.httpcomponents:httpclient:${httpcomponents_client_version}",
+                "org.apache.httpcomponents:httpmime:${httpcomponents_client_version}",
+                "org.apache.httpcomponents:httpcore:${httpcomponents_core_version}",
+                "org.apache.commons:commons-lang3:3.4",
+                "commons-io:commons-io:2.5",
+                "commons-codec:commons-codec:1.9",
+                "net.sourceforge.jexcelapi:jxl:${jxl_version}",
+                "org.slf4j:slf4j-api:${slf4j_version}" ,
+                "org.slf4j:jcl-over-slf4j:${slf4j_version}",
+        )
+
+        testCompile group: 'junit', name: 'junit', version: '4.12'
+    }
+
 }

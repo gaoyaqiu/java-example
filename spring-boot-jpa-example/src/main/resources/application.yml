@@ -1,0 +1,14 @@
+spring:
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+        hbm2ddl:
+          auto: update
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/shell_report?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&connectionCollation=utf8mb4_bin&useServerPrepStmts=false&rewriteBatchedStatements=true
+    driverClassName: com.mysql.jdbc.Driver
+    username: root
+    password: ok
+    testWhileIdle: true
+    validationQuery: SELECT 1
