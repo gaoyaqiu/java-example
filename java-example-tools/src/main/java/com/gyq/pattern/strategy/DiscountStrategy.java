@@ -1,7 +1,7 @@
 package com.gyq.pattern.strategy;
 
 /**
- * 打折策略.
+ * 策略模式.
  *
  * @auther gaoyaqiu
  */
