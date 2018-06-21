@@ -14,7 +14,7 @@ package com.gyq.pattern.proxy;
 public interface Person {
 
     /**
-     * 找对象
+     * 找房
      */
-    void findLove();
+    void findHourse();
 }

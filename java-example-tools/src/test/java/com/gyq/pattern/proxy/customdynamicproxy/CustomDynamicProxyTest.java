@@ -15,8 +15,8 @@ public class CustomDynamicProxyTest {
 
     @Test
     public void test() throws IOException {
-        Person person = (Person) MyProxy.newProxyInstance(new MyClassLoader(), new Class[]{Person.class}, new MeiPo(new LiSi()));
-        person.findLove();
+        Person person = (Person) MyProxy.newProxyInstance(new MyClassLoader(), new Class[]{Person.class}, new Agency(new LiSi()));
+        person.findHourse();
 
         System.out.println(person.getClass());
     }

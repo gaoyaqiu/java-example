@@ -6,16 +6,16 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 
 /**
- * 媒婆负责帮别人找对象.
+ * 中介负责帮李四找房.
  *
  * @author gaoyaqiu
  * @date 2018/6/20
  */
-public class MeiPo implements MyInvocationHandler {
+public class Agency implements MyInvocationHandler {
 
     private Person person;
 
-    public MeiPo(Person person){
+    public Agency(Person person){
         this.person = person;
     }
 
@@ -30,11 +30,11 @@ public class MeiPo implements MyInvocationHandler {
 
     private void befor() {
         System.out.println("我是自定义动态代理");
-        System.out.println("四处搜寻妹子。。。");
-        System.out.println("找到妹子一枚, 通知客户");
+        System.out.println("四处搜寻房子。。。");
+        System.out.println("找到合适房源, 通知客户");
     }
 
     private void after() {
-        System.out.println("付介绍费");
+        System.out.println("付中介费");
     }
 }

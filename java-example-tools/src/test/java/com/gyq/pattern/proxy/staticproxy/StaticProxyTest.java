@@ -10,6 +10,6 @@ public final class StaticProxyTest {
 
     @Test
     public void test() {
-        new MeiPo(new LiSi()).findLove();
+        new Agency(new LiSi()).findHourse();
     }
 }
