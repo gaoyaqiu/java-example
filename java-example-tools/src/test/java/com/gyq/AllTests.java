@@ -5,7 +5,7 @@ import com.gyq.pattern.factory.meth.MethFactoryTest;
 import com.gyq.pattern.factory.simple.SimpleFactoryTest;
 import com.gyq.pattern.singleton.SingletonTest;
 import com.gyq.pattern.strategy.DiscountTest;
-import com.gyq.jdk.java8.interfacefeature.CalculatorTest;
+import com.gyq.test.jdk.java8.interfacefeature.CalculatorTest;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 

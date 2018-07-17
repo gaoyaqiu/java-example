@@ -1,4 +1,4 @@
-package com.gyq.jdk.java8.function;
+package com.gyq.test.jdk.java8.function;
 
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package com.gyq.jdk.java8.interfacefeature;
+package com.gyq.test.jdk.java8.interfacefeature;
 
 /**
  * @auther gaoyaqiu

@@ -1,4 +1,4 @@
-package com.gyq.jdk.java8.interfacefeature;
+package com.gyq.test.jdk.java8.interfacefeature;
 
 /**
  * 接口的默认方法和静态方法(适合lanmbda编程的函数式接口).

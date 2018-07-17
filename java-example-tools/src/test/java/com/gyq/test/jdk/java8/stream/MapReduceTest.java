@@ -1,4 +1,4 @@
-package com.gyq.jdk.java8.stream;
+package com.gyq.test.jdk.java8.stream;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

@@ -1,4 +1,4 @@
-package com.gyq.jdk.java8.lambda;
+package com.gyq.test.jdk.java8.lambda;
 
 /**
  * 有参无返回值.

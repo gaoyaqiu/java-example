@@ -1,4 +1,4 @@
-package com.gyq.jdk.java8.methodreference;
+package com.gyq.test.jdk.java8.methodreference;
 
 import org.junit.Test;
 
