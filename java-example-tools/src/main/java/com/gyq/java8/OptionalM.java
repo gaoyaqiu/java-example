@@ -1,6 +1,5 @@
 package com.gyq.java8;
 
-import com.gyq.test.java8.Java8Tester;
 import lombok.Getter;
 import lombok.Setter;
 

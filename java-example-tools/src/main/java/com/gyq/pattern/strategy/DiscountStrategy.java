@@ -7,6 +7,8 @@ package com.gyq.pattern.strategy;
  */
 public interface DiscountStrategy {
 
-    // 计算打折
+    /**
+     * 计算打折
+     */
     double getDiscount(double originPrice);
 }
