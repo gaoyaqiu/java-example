@@ -10,7 +10,7 @@ import java.lang.reflect.Method;
  * @author gaoyaqiu
  * @date 2018/6/21
  */
-public class Agency implements MethodInterceptor {
+public class AgencyProxy implements MethodInterceptor {
 
     private Object target;
 
@@ -42,11 +42,12 @@ public class Agency implements MethodInterceptor {
 
 
     private void befor() {
-        System.out.println("四处搜寻房子。。。");
-        System.out.println("找到合适房源, 通知客户");
+        System.out.println("我是cglib动态代理");
+        System.out.println("我在XXX需要一套两室一厅新房，有现房就通知我");
+        System.out.println("中介四处搜寻房子，已找到合适房源, 通知客户。。。");
     }
 
     private void after() {
-        System.out.println("付中介费");
+        System.out.println("付中介费，合作愉快");
     }
 }

@@ -1,15 +1,8 @@
 package com.gyq.pattern.proxy.cglibproxy;
 
-import net.sf.cglib.core.DebuggingClassWriter;
-import net.sf.cglib.core.DefaultGeneratorStrategy;
-import net.sf.cglib.proxy.Enhancer;
-import net.sf.cglib.proxy.Proxy;
 import org.junit.Before;
 import org.junit.Test;
-import sun.misc.ProxyGenerator;
 
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
 
 /**
@@ -26,7 +19,7 @@ public class CglibProxyTest {
 
     @Test
     public void test() throws IOException {
-        Agency agency = new Agency();
+        AgencyProxy agency = new AgencyProxy();
         Person person = (Person) agency.getInstance(new Person());
 
         System.out.println(person.getClass());

@@ -8,19 +8,19 @@ import com.gyq.pattern.proxy.Person;
  * @author gaoyaqiu
  * @date 2018/6/20
  */
-public class Agency implements Person {
+public class AgencyProxy implements Person {
     private Person person;
 
-    public Agency(Person person) {
+    public AgencyProxy(Person person) {
         this.person = person;
     }
 
     @Override
     public void findHourse() {
-        // 中介开始搜寻房子
+        // 李四想买房
         befor();
 
-        // 找到之后就通知张三
+        // 中介开始搜寻房子,找到之后就通知李四
         person.findHourse();
 
         // 收取中介费
@@ -28,12 +28,12 @@ public class Agency implements Person {
     }
 
     private void befor() {
-        System.out.println("四处搜寻房子。。。");
-        System.out.println("找到合适房源, 通知客户");
+        System.out.println("我在XXX需要一套两室一厅新房，有现房就通知我");
+        System.out.println("中介四处搜寻房子，已找到合适房源, 通知客户。。。");
     }
 
     private void after() {
-        System.out.println("付中介费");
+        System.out.println("付中介费，合作愉快");
     }
 
 }

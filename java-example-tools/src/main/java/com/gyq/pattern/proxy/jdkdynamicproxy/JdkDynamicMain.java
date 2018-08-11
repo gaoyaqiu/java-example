@@ -2,8 +2,6 @@ package com.gyq.pattern.proxy.jdkdynamicproxy;
 
 import com.gyq.pattern.proxy.Person;
 import com.gyq.pattern.proxy.staticproxy.LiSi;
-import org.junit.Before;
-import org.junit.Test;
 import sun.misc.ProxyGenerator;
 
 import java.io.FileOutputStream;
@@ -11,18 +9,18 @@ import java.io.IOException;
 import java.lang.reflect.Proxy;
 
 /**
+ * 动态代理(结构型设计模式).
+ * <p>
+ * 特点: 通过jdk InvocationHandler接口来实现动态代理
+ * 缺点：被代理类一定要实现某个接口，比如LiSi实现了Person接口，如果我们的类原本是没有实现接口的，总不能为了用代理而特意去加一个接口吧，
+ * 如果要解决该问题，可以使用cglib动态代理，它是基于类做的代理。最后代理类由于做了很多额外的操作，效率上可能有一定影响
+ *
  * @author gaoyaqiu
- * @date 2018/6/20
+ * @date 2018/8/11
  */
-public class JdkDynamicProxyTest {
+public class JdkDynamicMain {
 
-    @Before
-    public void init(){
-       // System.setProperty("sun.misc.ProxyGenerator.saveGeneratedFiles", "true");
-    }
-
-    @Test
-    public void test() throws IOException {
+    public static void main(String[] args) throws IOException {
         Person person = (Person) Proxy.newProxyInstance(Person.class.getClassLoader(), new Class[]{Person.class}, new AgencyProxy(new LiSi()));
         person.findHourse();
 

@@ -39,7 +39,6 @@ public class MyClassLoader extends ClassLoader {
                 out.write(buff, 0, len);
             }
 
-
             return defineClass(className, out.toByteArray(), 0, out.size());
 
         } catch (FileNotFoundException e) {
@@ -67,7 +66,6 @@ public class MyClassLoader extends ClassLoader {
             boolean b = classFile.delete();
             System.out.println(b);
         }
-
 
         return super.findClass(name);
     }

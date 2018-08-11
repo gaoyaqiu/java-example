@@ -2,19 +2,16 @@ package com.gyq.pattern.proxy.customdynamicproxy;
 
 import com.gyq.pattern.proxy.Person;
 import com.gyq.pattern.proxy.staticproxy.LiSi;
-import org.junit.Test;
-
-import java.io.IOException;
-
 
 /**
+ * 手动实现动态代理（参考JDK动态代理）.
+ *
  * @author gaoyaqiu
- * @date 2018/6/20
+ * @date 2018/8/11
  */
-public class CustomDynamicProxyTest {
+public class CustomDynamicMain {
 
-    @Test
-    public void test() throws IOException {
+    public static void main(String[] args) {
         Person person = (Person) MyProxy.newProxyInstance(new MyClassLoader(), new Class[]{Person.class}, new AgencyProxy(new LiSi()));
         person.findHourse();
 

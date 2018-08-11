@@ -10,7 +10,6 @@ public class Person {
      * 找房
      */
     public void findHourse() {
-        System.out.println("我在XXX需要一套两室一厅新房，有现房就通知我");
         System.out.println("这房不错，我要了！");
     }
 }

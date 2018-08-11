@@ -10,6 +10,6 @@ public final class StaticProxyTest {
 
     @Test
     public void test() {
-        new Agency(new LiSi()).findHourse();
+        new AgencyProxy(new LiSi()).findHourse();
     }
 }
