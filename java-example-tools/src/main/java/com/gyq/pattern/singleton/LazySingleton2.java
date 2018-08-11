@@ -7,7 +7,6 @@ package com.gyq.pattern.singleton;
  */
 public class LazySingleton2 {
 
-    // 不允许外部实例化
     private LazySingleton2() {
     }
 

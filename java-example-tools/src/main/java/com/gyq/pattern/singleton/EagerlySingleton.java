@@ -1,7 +1,7 @@
 package com.gyq.pattern.singleton;
 
 /**
- * 单例模式——饿汉式.
+ * 单例模式——饿汉式(线程安全).
  *
  * @auther gaoyaqiu
  */
@@ -10,7 +10,9 @@ public class EagerlySingleton {
     private EagerlySingleton() {
     }
 
-    // 当jvm在加载这个类时，会立即创建该实例，保证了线程安全
+    /**
+     * 在类加载时就创建好了实例
+     */
     private static EagerlySingleton instance = new EagerlySingleton();
 
     public static EagerlySingleton getInstance() {

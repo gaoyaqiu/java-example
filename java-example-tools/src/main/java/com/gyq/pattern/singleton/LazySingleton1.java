@@ -7,14 +7,16 @@ package com.gyq.pattern.singleton;
  */
 public class LazySingleton1 {
 
-    // 不允许外部实例化
+    /**
+     * 不允许实例化
+     */
     private LazySingleton1() {
     }
 
     private static LazySingleton1 instance = null;
 
     /**
-     * 注意: 当有多个线程同时执行时，可能会存在两个实例.
+     * 当有多个线程同时执行时，可能会存在多个实例.
      *
      * @return
      */
