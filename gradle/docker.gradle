@@ -1,0 +1,64 @@
+apply plugin: 'docker'
+
+task buildImage(type: Docker, dependsOn: build) {
+    push = false
+
+    dockerfile = file("${projectDir}/Dockerfile")
+
+    doFirst {
+        if (!project.hasProperty('docker_repo')) {
+            throw new GradleException('docker_repo参数不能为空, 请检查-Pdocker_repo配置"')
+        }
+
+        tag = "${docker_repo}"
+        project.version = "${project.hasProperty('build_number') ? project.version + "." + build_number : project.version}"
+
+        copy {
+            from('build/libs') {
+                include '*.jar'
+            }
+            into stageDir
+            rename {
+                "app.jar"
+            }
+        }
+
+        copy {
+            from(file("${projectDir}/entrypoint.sh"))
+            into stageDir
+        }
+    }
+}
+
+task pushImage(type: Exec, description: "执行push镜像操作") {
+
+    doFirst {
+        if (!project.hasProperty('docker_repo')) {
+            throw new GradleException('docker_repo参数不能为空, 请检查-Pdocker_repo配置"')
+        }
+
+        def repository = "${docker_repo}"
+        def build_number = "${project.hasProperty('build_number') ? project.version + "." + build_number : project.version}"
+
+        println "docker push ${repository}:${build_number}"
+        commandLine 'docker', 'push', "${repository}:${build_number}"
+    }
+}
+
+// 清理发布机镜像文件
+task cleanImage(type: Exec, description: "执行清理镜像操作") {
+    doFirst {
+        if (!project.hasProperty('docker_repo')) {
+            throw new GradleException('docker_repo参数不能为空, 请检查-Pdocker_repo配置"')
+        }
+
+        def repository = "${docker_repo}"
+        def build_number = "${project.hasProperty('build_number') ? project.version + "." + build_number : project.version}"
+
+        println "docker rmi ${repository}:${build_number}"
+        commandLine 'docker', 'rmi', "${repository}:${build_number}"
+    }
+}
+
+// push之后在执行clean任务
+cleanImage.mustRunAfter pushImage

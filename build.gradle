@@ -9,6 +9,7 @@ buildscript {
 
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath('se.transmode.gradle:gradle-docker:1.2')
     }
 }
 
@@ -29,6 +30,11 @@ allprojects {
         slf4j_version="1.7.2"
         springboot_version="1.5.0.RELEASE"
         mysql_connector_version="5.1.30"
+        beanutils_version = "1.9.2"
+    }
+
+    task wrapper(type: Wrapper) {
+        gradleVersion = '3.3'
     }
 }
 

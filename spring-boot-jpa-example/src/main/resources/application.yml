@@ -1,14 +1,23 @@
+app:
+  name: spring-boot-jpa-example
+
+server:
+  port: 8084
+  undertow:
+    buffer-size: 1024
+    direct-buffers: true
+    io-threads: 1
+    worker-threads: 50
+
 spring:
+  application:
+    name: spring-boot-jpa-example
+  profiles:
+    active: local
   jpa:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL5Dialect
         hbm2ddl:
           auto: update
-  datasource:
-    url: jdbc:mysql://127.0.0.1:3306/shell_report?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&connectionCollation=utf8mb4_bin&useServerPrepStmts=false&rewriteBatchedStatements=true
-    driverClassName: com.mysql.jdbc.Driver
-    username: root
-    password: ok
-    testWhileIdle: true
-    validationQuery: SELECT 1
+

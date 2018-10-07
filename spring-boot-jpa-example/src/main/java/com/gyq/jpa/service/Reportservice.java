@@ -28,4 +28,8 @@ public class Reportservice {
         reportRepository.save(list);
     }
 
+
+    public List<TReportEntity> list() {
+        return reportRepository.findAll();
+    }
 }

@@ -1,0 +1,12 @@
+spring:
+  datasource:
+    url: jdbc:mysql://${MYSQL_DB_HOST}:${MYSQL_DB_PORT}/shell_report?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&connectionCollation=utf8mb4_bin&useServerPrepStmts=false&rewriteBatchedStatements=true
+    driverClassName: com.mysql.jdbc.Driver
+    username: ${MYSQL_DB_USER}
+    password: ${MYSQL_DB_PASSWORD}
+    testWhileIdle: true
+    validationQuery: SELECT 1
+
+logging:
+  file: /data/nfs/logs
+

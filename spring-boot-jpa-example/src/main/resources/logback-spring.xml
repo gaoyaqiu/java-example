@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration>
+    <springProperty scope="context" name="contextName" source="spring.application.name"/>
+    <contextName>${contextName}</contextName>
+
+    <property name="log.async.queue.size" value="20480"/>
+    <property name="log.maxFileSize" value="1024MB"/>
+    <property name="log.charset" value="UTF-8"/>
+    <property name="log.file" value="${LOG_FILE:-${java.io.tmpdir:-/tmp}}/${contextName}"/>
+    <property name="log.pattern" value='{
+		"app": "%contextName",
+		"timestamp": "%date{"yyyy-MM-dd HH:mm:ss.SSS"}",
+		"log_level": "%level",
+		"thread": "%thread",
+		"pos": "%logger",
+		"stack_trace": "%exception{100}",
+		"message": "%message"
+		}%n'
+    />
+
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${log.file}/log.json</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${log.file}/log.%d{yyyy-MM-dd}.%i.log.json.zip</fileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>${log.maxFileSize}</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+        <encoder charset="${log.charset}">
+            <pattern>
+                ${log.pattern}
+            </pattern>
+        </encoder>
+    </appender>
+
+    <!-- Asynchronized log, for FILE only -->
+    <appender name="ASYNC_FILE" class="ch.qos.logback.classic.AsyncAppender">
+        <!-- Don't discard log, logback will discard TRACE, DEBUG, INFO log when queue 80% capacity reached by default. -->
+        <discardingThreshold>0</discardingThreshold>
+        <queueSize>${log.async.queue.size}</queueSize>
+        <includeCallerData>false</includeCallerData>
+        <appender-ref ref="FILE"/>
+    </appender>
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder charset="${log.charset}">
+            <pattern>
+                ${log.pattern}
+            </pattern>
+        </encoder>
+    </appender>
+
+    <logger name="org.springframework" level="error"/>
+
+    <springProfile name="local">
+        <logger name="com.gyq" level="debug"/>
+    </springProfile>
+
+    <springProfile name="k8s">
+        <logger name="com.gyq" level="info"/>
+    </springProfile>
+
+
+    <root level="INFO">
+        <springProfile name="local">
+            <appender-ref ref="CONSOLE"/>
+        </springProfile>
+
+        <springProfile name="k8s">
+            <appender-ref ref="ASYNC_FILE"/>
+        </springProfile>
+    </root>
+
+</configuration>

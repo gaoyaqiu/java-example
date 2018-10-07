@@ -28,7 +28,12 @@ public class ReportserviceTest {
     @Autowired
     private Reportservice reportservice;
 
-    @Test
+    // @Test
+    public void list() {
+        System.out.println(reportservice.list());
+    }
+
+   // @Test
     public void add() throws Exception {
 
         long start = System.currentTimeMillis();

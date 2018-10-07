@@ -1,4 +1,15 @@
-# Compiled class file
+### Gradle template
+.gradle/
+build/
+target/
+
+# Ignore Gradle GUI config
+gradle-app.setting
+/*/out/
+
+# Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
+!gradle-wrapper.jar
+### Java template
 *.class
 
 # Log file
@@ -23,9 +34,6 @@ hs_err_pid*
 
 .idea
 .DS_Store
-target
-build
-out
 .gradle
 Test.java
 Test2.java
