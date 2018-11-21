@@ -9,9 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.List;
 
@@ -33,12 +31,12 @@ public class ReportserviceTest {
         System.out.println(reportservice.list());
     }
 
-   // @Test
+//    @Test
     public void add() throws Exception {
 
         long start = System.currentTimeMillis();
         BufferedReader reader = null;
-        String file = "/Users/gaoyaqiu/Downloads/V5701702S0053_Detail_2018_4.csv";
+        String file = "/Users/gaoyaqiu/Downloads/V5701807S0537_Detail_2018_10.csv";
         try {
             reader = new BufferedReader(new FileReader(file));
             reader.readLine();
@@ -47,14 +45,16 @@ public class ReportserviceTest {
             String line = null;
             int i = 0;
             List<TReportEntity> list = newArrayList();
+
             while (!Strings.isNullOrEmpty(line = reader.readLine())) {
                 // 首先去除无用的干扰的字符串
                 // {"ImageType":"","ServiceType":"","VMName":"","VMProperties":"","UsageType":"DataTrOut"}
                 // "StandardIO-BlockBlobWriteOperationUnits(in10,000s)"
-               // System.out.println("第" + i + "行: 原始数据: " + line);
-                String str = line.replaceAll("\\{.*}", "").replaceAll("\\(.*?\\)", "");
+                // 调试放开
+                //System.out.println("第" + i + "行: 原始数据: " + line);
+                String str = line.replaceAll("\\{.*?}", "").replaceAll("\\(.*?\\)", "");
                 String item[] = str.split(",");
-               // System.out.println("替换之后的数据： " + str + " 数组长度: " + item.length);
+                // System.out.println("替换之后的数据： " + str + " 数组长度: " + item.length);
 
                 TReportEntity reportEntity = new TReportEntity();
                 reportEntity.setAccountOwnerId(replaceStr(item[0]));
@@ -96,9 +96,7 @@ public class ReportserviceTest {
 
             long end = System.currentTimeMillis();
             System.out.println("总数: " + i + " 耗时: " + (end - start) / 1000);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         } finally {
             if (null != reader) {
