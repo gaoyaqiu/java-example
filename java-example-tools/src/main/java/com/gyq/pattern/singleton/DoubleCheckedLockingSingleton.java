@@ -18,6 +18,7 @@ public class DoubleCheckedLockingSingleton {
     private static DoubleCheckedLockingSingleton getInstance() {
         // 减少锁带来的性能损耗，不用每次都通过加锁来判断对象是否为空
         if (null == instance) {
+            // 防止多个线程同时执行到这块代码，所以需要加锁
             synchronized (DoubleCheckedLockingSingleton.class) {
                 if (null == instance) {
                     instance = new DoubleCheckedLockingSingleton();
