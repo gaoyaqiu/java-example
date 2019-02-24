@@ -28,7 +28,7 @@ public final class SingletonTest {
         for (int i = 0; i < thread; i++) {
             new Thread(() -> {
                 latch.countDown();
-                LazySingleton1 obj = LazySingleton1.getInstance();
+                LazyInitializedSingleton obj = LazyInitializedSingleton.getInstance();
                 set.add(obj.hashCode());
             }).start();
         }
@@ -52,7 +52,7 @@ public final class SingletonTest {
         for (int i = 0; i < thread; i++) {
             new Thread(() -> {
                 latch.countDown();
-                LazySingleton2 obj = LazySingleton2.getInstance();
+                LazyInitializedThreadSafeSingleton obj = LazyInitializedThreadSafeSingleton.getInstance();
                 set.add(obj.hashCode());
             }).start();
         }
@@ -75,7 +75,7 @@ public final class SingletonTest {
         for (int i = 0; i < threadNumber; i++) {
             new Thread(() -> {
                 latch.countDown();
-                LazySingleton3 obj = LazySingleton3.getInstance();
+                LazyInitializedInnerClassSingleton obj = LazyInitializedInnerClassSingleton.getInstance();
                 set.add(obj.hashCode());
             }).start();
         }

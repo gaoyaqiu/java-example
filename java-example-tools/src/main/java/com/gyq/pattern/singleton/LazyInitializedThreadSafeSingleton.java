@@ -5,21 +5,21 @@ package com.gyq.pattern.singleton;
  *
  * @auther gaoyaqiu
  */
-public class LazySingleton2 {
+public class LazyInitializedThreadSafeSingleton {
 
-    private LazySingleton2() {
+    private LazyInitializedThreadSafeSingleton() {
     }
 
-    private static LazySingleton2 instance = null;
+    private static LazyInitializedThreadSafeSingleton instance = null;
 
     /**
      * 加了synchronized来阻塞多线程并发请求，延长了程序的响应时间, 降低了程序的性能，造成资源浪费.
      *
      * @return
      */
-    public static synchronized LazySingleton2 getInstance() {
+    public static synchronized LazyInitializedThreadSafeSingleton getInstance() {
         if (null == instance) {
-            instance = new LazySingleton2();
+            instance = new LazyInitializedThreadSafeSingleton();
         }
 
         return instance;

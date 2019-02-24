@@ -4,6 +4,7 @@ buildscript {
     }
 
     repositories {
+        maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
         jcenter()
     }
 
@@ -48,6 +49,7 @@ subprojects {
     [compileJava, compileTestJava]*.options*.encoding = "UTF-8"
 
     repositories {
+        maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
         jcenter()
     }
 
