@@ -7,17 +7,17 @@ import java.io.*;
  *
  * @author gaoyaqiu
  */
-public class FileInputOutStreamDemo {
+public class FileInputOutputStreamDemo {
 
     public static void main(String[] args) throws IOException {
-        // 1. 创建来源于目的地文件
-        File src = new File("/Users/gaoyaqiu/Downloads/bak/io/src.txt");
-        File dest = new File("/Users/gaoyaqiu/Downloads/bak/io/dest.txt");
+        // 1. 创建数据来源于目的地
+        File src = new File("/Users/gaoyaqiu/Downloads/bak/io/src_byte.txt");
+        File dest = new File("/Users/gaoyaqiu/Downloads/bak/io/dest_byte.txt");
         // 2. 自动关闭资源
-        try(InputStream in = new FileInputStream(src);
-            OutputStream out = new FileOutputStream(dest)){
+        try (InputStream in = new FileInputStream(src);
+             OutputStream out = new FileOutputStream(dest)) {
             // 3. 每次从来源文件读取 1024 字节
-            byte[] data = new byte[1];
+            byte[] data = new byte[1024];
             int length;
             /**
              *  int read():读取一个字节，返回读取的字节
