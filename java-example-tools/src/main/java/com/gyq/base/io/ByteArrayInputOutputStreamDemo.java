@@ -12,10 +12,12 @@ import java.io.OutputStream;
  */
 public class ByteArrayInputOutputStreamDemo {
     public static void main(String[] args) throws Exception {
-        byte[] bytes = "abcdefg".getBytes();
-        InputStream in = new ByteArrayInputStream(bytes);
+
         OutputStream out = new ByteArrayOutputStream();
-        out.write(bytes);
+        out.write("abcdefg".getBytes());
+
+        byte[] bytes = ((ByteArrayOutputStream) out).toByteArray();
+        InputStream in = new ByteArrayInputStream(bytes);
 
         int length;
         byte[] data = new byte[1024];
