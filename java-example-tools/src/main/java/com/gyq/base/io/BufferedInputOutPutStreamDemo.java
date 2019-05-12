@@ -9,14 +9,12 @@ import java.io.*;
  */
 public class BufferedInputOutPutStreamDemo {
 
-    private static int DEFAULT_BUFFER_SIZE = 8192;
-
     public static void main(String[] args) throws IOException {
-        File src = new File("/Users/gaoyaqiu/Downloads/bak/io/src_char.txt");
-        File dest = new File("/Users/gaoyaqiu/Downloads/bak/io/dest_char.txt");
+        File src = new File("/Users/gaoyaqiu/Downloads/bak/io/src.txt");
+        File dest = new File("/Users/gaoyaqiu/Downloads/bak/io/dest.txt");
 
-        try (InputStream in = new BufferedInputStream(new FileInputStream(src), DEFAULT_BUFFER_SIZE);
-             OutputStream out = new BufferedOutputStream(new FileOutputStream(dest), DEFAULT_BUFFER_SIZE)) {
+        try (InputStream in = new BufferedInputStream(new FileInputStream(src));
+             OutputStream out = new BufferedOutputStream(new FileOutputStream(dest))) {
 
             int length;
             byte[] data = new byte[1024];
