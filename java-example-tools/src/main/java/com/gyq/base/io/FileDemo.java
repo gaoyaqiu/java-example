@@ -15,11 +15,11 @@ public class FileDemo {
         constructFile();
         System.out.println("=========================================");
 
-        createFile();
-        System.out.println("=========================================");
-
-        File file = new File("/Users/gaoyaqiu/Downloads/bak/io");
-        getFileList(file);
+//        createFile();
+//        System.out.println("=========================================");
+//
+//        File file = new File("/Users/gaoyaqiu/Downloads/bak/io");
+//        getFileList(file);
     }
 
     /**
@@ -50,6 +50,9 @@ public class FileDemo {
         // 从父路径名字符串和子路径名字符串创建新的 File实例.
         File file6 = new File("/Users/gaoyaqiu/Downloads/bak", "io/test2.txt");
         System.out.println("file6: " + file6);
+        System.out.println(file6.getAbsolutePath());
+        System.out.println(file6.getCanonicalFile());
+        System.out.println(file6.getPath());
     }
 
     /**
