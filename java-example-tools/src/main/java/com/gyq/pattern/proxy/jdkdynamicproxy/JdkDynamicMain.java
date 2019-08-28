@@ -1,12 +1,6 @@
 package com.gyq.pattern.proxy.jdkdynamicproxy;
 
-import com.gyq.pattern.proxy.Person;
-import com.gyq.pattern.proxy.staticproxy.LiSi;
-import sun.misc.ProxyGenerator;
-
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.lang.reflect.Proxy;
 
 /**
  * 动态代理(结构型设计模式).
@@ -21,19 +15,19 @@ import java.lang.reflect.Proxy;
 public class JdkDynamicMain {
 
     public static void main(String[] args) throws IOException {
-        Person person = (Person) Proxy.newProxyInstance(Person.class.getClassLoader(), new Class[]{Person.class}, new AgencyProxy(new LiSi()));
-        person.findHourse();
-
-        // 查看代理之后的类名
-        System.out.println(person.getClass());
-
-        // 获取字节码
-        byte[] data = ProxyGenerator.generateProxyClass("$Proxy4", new Class[]{Person.class});
-
-        // 输出到class文件
-        FileOutputStream os = new FileOutputStream("/Users/gaoyaqiu/Downloads/bak/test/$Proxy4.class");
-        os.write(data);
-        os.close();
+//        Person person = (Person) Proxy.newProxyInstance(Person.class.getClassLoader(), new Class[]{Person.class}, new AgencyProxy(new LiSi()));
+//        person.findHourse();
+//
+//        // 查看代理之后的类名
+//        System.out.println(person.getClass());
+//
+//        // 获取字节码
+//        byte[] data = ProxyGenerator.generateProxyClass("$Proxy4", new Class[]{Person.class});
+//
+//        // 输出到class文件
+//        FileOutputStream os = new FileOutputStream("/Users/gaoyaqiu/Downloads/bak/test/$Proxy4.class");
+//        os.write(data);
+//        os.close();
 
         // 用反编译软件查看class文件
     }
