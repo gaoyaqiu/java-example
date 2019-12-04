@@ -1,7 +1,6 @@
 package com.gyq.base.concurrency;
 
 import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -9,10 +8,10 @@ public class CountDownLatchDemo {
 
     public static void main(String[] args) throws InterruptedException {
         // 4 -> 3 -> 2 -> 1
-        CountDownLatch latch = new CountDownLatch(4);
+        CountDownLatch latch = new CountDownLatch(3);
         ExecutorService executorService = Executors.newFixedThreadPool(3);
 
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < 3; i++) {
             executorService.submit(() -> {
                 echoThread();
                 latch.countDown(); // -1
