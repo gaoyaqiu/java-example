@@ -1,7 +1,7 @@
 package com.gyq.model;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.gyq.utils.DateUtil;
+import com.gyq.utils.OldDateUtil;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -39,7 +39,7 @@ public class JsonHttpResult<T> implements Serializable {
     }
 
     private long getTimestamp() {
-        return DateUtil.getCurrentTimeMills();
+        return OldDateUtil.getCurrentTimeMills();
     }
 
     private static final long serialVersionUID = 1L;
