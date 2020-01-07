@@ -34,8 +34,8 @@ public class RedPackageTest {
     public static void main(String[] args) {
 //        for (int i = 0; i < 5; i++) {
             RedPackage moneyPackage = new RedPackage();
-            moneyPackage.remainMoney = BigDecimal.valueOf(100);
-            moneyPackage.remainSize = 5;
+            moneyPackage.remainMoney = BigDecimal.valueOf(50050);
+            moneyPackage.remainSize = 100;
 
             while (moneyPackage.remainSize != 0) {
                 System.out.print(getRandomMoney(moneyPackage)  + "   ");
