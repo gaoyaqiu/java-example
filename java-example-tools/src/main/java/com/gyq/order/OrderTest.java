@@ -74,22 +74,21 @@ public class OrderTest {
 //        auto(total, randomOrderList);
 
         // 自定义
-        long luckyNum = 10000168;
+        int luckyNum = 10000168;
         List<Long> newList = custom(total, randomOrderList, luckyNum);
         auto(total, newList);
     }
 
-    private static List<Long> custom(int total, List<Long> randomOrderList, long luckyNum) {
+    private static List<Long> custom(int total, List<Long> randomOrderList, int luckyNum) {
         if (luckyNum < MIN_LUCKY_NUM || luckyNum > MAX_LUCKY_NUM) {
             System.err.println("幸运号码格式范围有误！luckyNum: " + luckyNum);
             return Collections.emptyList();
         }
-
         // 获取实际的号码
         String str = String.valueOf(luckyNum);
         str = str.substring(str.lastIndexOf("0") + 1);
         // -1 是因为生成的号码规则从 1开始，而计算取余时从 0 开始
-        long realNum = Long.parseLong(str) - 1;
+        int realNum = Integer.parseInt(str) - 1;
         // 计算时、分、秒、毫秒 总和
         long sumNacos = getSumNacos(randomOrderList);
         // 将总纳秒格式化为时、分、秒、毫秒格式

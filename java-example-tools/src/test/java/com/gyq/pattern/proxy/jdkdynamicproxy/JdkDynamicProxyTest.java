@@ -4,9 +4,7 @@ import com.gyq.pattern.proxy.Person;
 import com.gyq.pattern.proxy.staticproxy.LiSi;
 import org.junit.Before;
 import org.junit.Test;
-import sun.misc.ProxyGenerator;
 
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.lang.reflect.Proxy;
 
@@ -17,8 +15,8 @@ import java.lang.reflect.Proxy;
 public class JdkDynamicProxyTest {
 
     @Before
-    public void init(){
-       // System.setProperty("sun.misc.ProxyGenerator.saveGeneratedFiles", "true");
+    public void init() {
+        // System.setProperty("sun.misc.ProxyGenerator.saveGeneratedFiles", "true");
     }
 
     @Test
@@ -30,12 +28,12 @@ public class JdkDynamicProxyTest {
         System.out.println(person.getClass());
 
         // 获取字节码
-        byte[] data = ProxyGenerator.generateProxyClass("$Proxy4", new Class[]{Person.class});
+        //   byte[] data = ProxyGenerator.generateProxyClass("$Proxy4", new Class[]{Person.class});
 
         // 输出到class文件
-        FileOutputStream os = new FileOutputStream("/Users/gaoyaqiu/Downloads/bak/test/$Proxy4.class");
-        os.write(data);
-        os.close();
+//        FileOutputStream os = new FileOutputStream("/Users/gaoyaqiu/Downloads/bak/test/$Proxy4.class");
+//        os.write(data);
+//        os.close();
 
         // 用反编译软件查看class文件
     }
