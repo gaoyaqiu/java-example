@@ -9,7 +9,7 @@ public class CountDownLatchDemo {
     public static void main(String[] args) throws InterruptedException {
         // 4 -> 3 -> 2 -> 1
         CountDownLatch latch = new CountDownLatch(3);
-        ExecutorService executorService = Executors.newFixedThreadPool(3);
+        ExecutorService executorService = Executors.newFixedThreadPool(2);
 
         for (int i = 0; i < 3; i++) {
             executorService.submit(() -> {

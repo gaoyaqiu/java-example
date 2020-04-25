@@ -7,7 +7,7 @@ import java.util.concurrent.Executors;
 public class CyclicBarrierDemo {
 
     public static void main(String[] args) throws InterruptedException {
-        CyclicBarrier cyclicBarrier = new CyclicBarrier(3);
+        CyclicBarrier cyclicBarrier = new CyclicBarrier(5);
         ExecutorService executorService = Executors.newFixedThreadPool(3);
 
         for (int i = 0; i < 3; i++) {
