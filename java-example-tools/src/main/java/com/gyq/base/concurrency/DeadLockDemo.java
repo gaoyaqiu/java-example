@@ -1,7 +1,7 @@
 package com.gyq.base.concurrency;
 
 /**
- * 线程死锁案例.
+ * 线程死锁案例(互相持有对象资源).
  *
  * @author gaoyaqiu
  * @date 2019/6/26
