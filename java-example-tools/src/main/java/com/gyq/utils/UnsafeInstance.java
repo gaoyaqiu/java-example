@@ -4,6 +4,8 @@ import java.lang.reflect.Field;
 import sun.misc.Unsafe;
 
 /**
+ * 线程交换场景（没什么卵用）
+ *
  * @author qiu
  * @date 2020/5/3
  */
