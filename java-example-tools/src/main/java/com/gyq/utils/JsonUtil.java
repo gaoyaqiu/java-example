@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.gyq.json.JsonConverter;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -51,6 +52,10 @@ public class JsonUtil {
 
     public static Map<String, Object> json2Map(String fieldName, String jsonString) {
         return ((Map) json2Object(HashMap.class, fieldName, jsonString));
+    }
+
+    public static Map<String, Object> json2LinkedHashMap(String fieldName, String jsonString) {
+        return ((Map) json2Object(LinkedHashMap.class, fieldName, jsonString));
     }
 
 
